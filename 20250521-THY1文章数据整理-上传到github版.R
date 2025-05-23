@@ -818,7 +818,7 @@ vm <- Integrated.HCC.dataset_myeloid@assays$RNA@scale.data
 vm[vm<0] <- 0
 res <- nmf(vm, 15, method = "snmf/r", seed = 'nndsvd')
 nmf.embeddings <- t(coef(res))
-colnames(nmf.embeddings) <- paste0("NMF_", 1:15)  #1:15指的是有15列，把这15列都按照规定改名字
+colnames(nmf.embeddings) <- paste0("NMF_", 1:15)
 nmf.embeddings <- as.matrix(nmf.embeddings)
 Integrated.HCC.dataset_myeloid[["nmf"]] <- CreateDimReducObject(embeddings = nmf.embeddings, key = "NMF_")
 
