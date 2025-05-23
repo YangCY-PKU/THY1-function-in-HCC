@@ -1,6 +1,3 @@
-#±¾´úÂëÊÇÏëÕûÀíTHY1ÎÄÕÂÖĞÉæ¼°µ¥Ï¸°ûÒÔ¼°¿Õ×ª²¿·ÖµÄ·ÖÎö´úÂë
-#²¢½«ÆäÉÏ´«µ½githubÉÏÈ¥
-
 
 ###======================================================================================
 ###Part I: Analyze the scRNA-seq data from HCC cohorts independently and show tSNE plots.
@@ -821,7 +818,7 @@ vm <- Integrated.HCC.dataset_myeloid@assays$RNA@scale.data
 vm[vm<0] <- 0
 res <- nmf(vm, 15, method = "snmf/r", seed = 'nndsvd')
 nmf.embeddings <- t(coef(res))
-colnames(nmf.embeddings) <- paste0("NMF_", 1:15)  #1:15Ö¸µÄÊÇÓĞ15ÁĞ£¬°ÑÕâ15ÁĞ¶¼°´ÕÕ¹æ¶¨¸ÄÃû×Ö
+colnames(nmf.embeddings) <- paste0("NMF_", 1:15)  #1:15æŒ‡çš„æ˜¯æœ‰15åˆ—ï¼ŒæŠŠè¿™15åˆ—éƒ½æŒ‰ç…§è§„å®šæ”¹åå­—
 nmf.embeddings <- as.matrix(nmf.embeddings)
 Integrated.HCC.dataset_myeloid[["nmf"]] <- CreateDimReducObject(embeddings = nmf.embeddings, key = "NMF_")
 
